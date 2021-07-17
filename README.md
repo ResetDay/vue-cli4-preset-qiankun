@@ -14,9 +14,9 @@
 npm install -g @vue/cli
 
 # 远程 preset 创建项目
-vue create --preset ResetDay/qiankun-vue-cli4-preset my-project
+vue create --preset ResetDay/vue-cli4-preset-qiankun my-project
 # 或者克隆到本地创建
-vue create --preset direct:https://github.com/ResetDay/qiankun-vue-cli4-preset.git my-project --clone
+vue create --preset direct:https://github.com/ResetDay/vue-cli4-preset-qiankun.git my-project --clone
 
 # 预览
 cd my-project
