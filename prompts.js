@@ -11,8 +11,16 @@ module.exports = [
       {
         name: '移动端',
         value: 'm'
+      },
+      {
+        name: 'qiankun-Vue主应用',
+        value: 'main'
+      },
+      {
+        name: 'qiankun-Vue微应用',
+        value: 'sub'
       }
     ],
-    default: 'pc'
+    default: 'sub'
   }
 ]

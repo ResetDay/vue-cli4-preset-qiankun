@@ -31,7 +31,7 @@ module.exports = (api, options, rootOptions) => {
         }
       },
     })
-  } else {
+  } else if (options.type === 'm') {
     // 移动端配置
     api.extendPackage({
       dependencies: {
@@ -62,6 +62,37 @@ module.exports = (api, options, rootOptions) => {
         }
       }
     })
+  } else if (options.type === 'main') {
+    // qiankun 主应用
+    api.extendPackage({
+      dependencies: {
+        "element-ui": "^2.13.2",
+        "qiankun": "^2.4.3"
+      },
+      devDependencies: {
+        'babel-plugin-component': '^1.1.1'
+      },
+      postcss: {
+        "plugins": {
+          "autoprefixer": {}
+        }
+      },
+    })
+  }else {
+    // qiankun 微应用
+    api.extendPackage({
+      dependencies: {
+        "element-ui": "^2.13.2"
+      },
+      devDependencies: {
+        'babel-plugin-component': '^1.1.1'
+      },
+      postcss: {
+        "plugins": {
+          "autoprefixer": {}
+        }
+      },
+    })    
   }
 
   // 删除 vue-cli4 默认目录
@@ -71,8 +102,22 @@ module.exports = (api, options, rootOptions) => {
       .forEach(path => delete files[path])
   })
 
+  let templateSelected = ''
+  switch (options.type) {
+    case 'm':  
+      templateSelected = './template-m'; 
+      break;
+    case 'main':  
+      templateSelected = './qiankun-main'; 
+      break;
+    case 'sub':  
+      templateSelected = './qiankun-sub'; 
+      break;
+    default:
+      templateSelected = './template';    
+  }
   // 生成项目模板
-  api.render(options.type === 'pc' ? './template' : './template-m')
+  api.render(templateSelected)
 
   // 阻止默认README.md文件生成
   api.onCreateComplete(() => {

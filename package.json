@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jim-Rae/vue-cli4-preset-jr.git"
+    "url": "https://github.com/ResetDay/qiankun-vue-cli4-preset.git"
   },
   "keywords": [
     "vue-cli4",
     "preset"
   ],
-  "author": "Jim Rae",
+  "author": "ResetDay",
   "license": "MIT",
   "devDependencies": {
     "vuepress": "^1.4.1"
