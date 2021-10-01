@@ -113,6 +113,9 @@ module.exports = (api, options, rootOptions) => {
     case 'sub':  
       templateSelected = './qiankun-sub'; 
       break;
+    case 'main-horizontal':
+      templateSelected = './qiankun-horizontal';
+      break;
     default:
       templateSelected = './template';    
   }
