@@ -67,7 +67,7 @@ module.exports = (api, options, rootOptions) => {
     api.extendPackage({
       dependencies: {
         "element-ui": "^2.13.2",
-        "qiankun": "^2.4.3"
+        "qiankun": "^2.5.1"
       },
       devDependencies: {
         'babel-plugin-component': '^1.1.1'
@@ -78,7 +78,40 @@ module.exports = (api, options, rootOptions) => {
         }
       },
     })
-  }else {
+  } else if (options.type === 'main-horizontal') {
+    // qiankun 主应用
+    api.extendPackage({
+      dependencies: {
+        "element-ui": "^2.13.2",
+        "qiankun": "^2.5.1"
+      },
+      devDependencies: {
+        'babel-plugin-component': '^1.1.1'
+      },
+      postcss: {
+        "plugins": {
+          "autoprefixer": {}
+        }
+      },
+    })
+  } else if (options.type === 'main-horizontal-live2d') {
+    // qiankun 主应用
+    api.extendPackage({
+      dependencies: {
+        "element-ui": "^2.13.2",
+        "qiankun": "^2.5.1",
+        "font-awesome": "^4.7.0"
+      },
+      devDependencies: {
+        'babel-plugin-component': '^1.1.1'
+      },
+      postcss: {
+        "plugins": {
+          "autoprefixer": {}
+        }
+      },
+    })
+  } else {
     // qiankun 微应用
     api.extendPackage({
       dependencies: {
@@ -92,7 +125,7 @@ module.exports = (api, options, rootOptions) => {
           "autoprefixer": {}
         }
       },
-    })    
+    })
   }
 
   // 删除 vue-cli4 默认目录
@@ -104,20 +137,23 @@ module.exports = (api, options, rootOptions) => {
 
   let templateSelected = ''
   switch (options.type) {
-    case 'm':  
-      templateSelected = './template-m'; 
+    case 'm':
+      templateSelected = './template-m';
       break;
-    case 'main':  
-      templateSelected = './qiankun-main'; 
+    case 'main':
+      templateSelected = './qiankun-main';
       break;
-    case 'sub':  
-      templateSelected = './qiankun-sub'; 
+    case 'sub':
+      templateSelected = './qiankun-sub';
       break;
     case 'main-horizontal':
       templateSelected = './qiankun-horizontal';
       break;
+    case 'main-horizontal-live2d':
+      templateSelected = './qiankun-horizontal-live2d';
+      break;
     default:
-      templateSelected = './template';    
+      templateSelected = './template';
   }
   // 生成项目模板
   api.render(templateSelected)

@@ -13,16 +13,20 @@ module.exports = [
         value: 'm'
       },
       {
-        name: 'qiankun-Vue主应用-默认',
+        name: 'qiankun-Vue主应用-垂直导航栏',
         value: 'main'
       },
       {
-        name: 'qiankun-Vue微应用-默认',
+        name: 'qiankun-Vue子应用-垂直导航栏-默认',
         value: 'sub'
       },
       {
-        name: 'qiankun-Vue微应用-水平导航栏',
+        name: 'qiankun-Vue主应用-水平导航栏',
         value: 'main-horizontal'
+      },
+      {
+        name: 'qiankun-Vue主应用-水平导航栏-live2d',
+        value: 'main-horizontal-live2d'
       }
     ],
     default: 'sub'

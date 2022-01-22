@@ -1,0 +1,5 @@
+node_modules
+dist
+src/assets/*
+src/utils/*
+font-awesome/css/font-awesome.min.css
